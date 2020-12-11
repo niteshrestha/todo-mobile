@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:vm="clr-namespace:Todo.ViewModels"
+             x:Class="Todo.Views.LoginPage"
+             Shell.NavBarIsVisible="False">
+    <d:ContentPage.BindingContext>
+        <vm:LoginViewModel />
+    </d:ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Padding="10,0,10,0"
+                     VerticalOptions="Center">
+            <Entry Placeholder="Username"
+                   Text="{Binding Username,  Mode=TwoWay}" />
+            <Entry Placeholder="Password"
+                   Text="{Binding Password, Mode=TwoWay}"
+                   IsPassword="True" />
+            <Button VerticalOptions="Center"
+                    Text="Login"
+                    Command="{Binding LoginCommand}" />
+            <Label HorizontalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Don't have an accout? " />
+                        <Span Text="Reginster Here"
+                              TextColor="Blue"
+                              TextDecorations="Underline">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding RegisterCommand}" />
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

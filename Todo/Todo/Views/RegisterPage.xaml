@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:vm="clr-namespace:Todo.ViewModels"
+             x:Class="Todo.Views.RegisterPage"
+             Padding="10">
+    <d:ContentPage.BindingContext>
+        <vm:RegisterViewModel />
+    </d:ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Username:"
+                   VerticalTextAlignment="Center" />
+            <Entry Placeholder="johndoe"
+                   Text="{Binding Username}" />
+            <Label Text="Email:"
+                   VerticalTextAlignment="Center" />
+            <Entry Placeholder="johndoe@email.com"
+                   Text="{Binding Email}" />
+            <Label Text="First Name:"
+                   VerticalTextAlignment="Center" />
+            <Entry Placeholder="John"
+                   Text="{Binding FirstName}" />
+            <Label Text="Last Name:"
+                   VerticalTextAlignment="Center" />
+            <Entry Placeholder="Doe"
+                   Text="{Binding LastName}" />
+            <Label Text="Password:"
+                   VerticalTextAlignment="Center" />
+            <Entry IsPassword="True"
+                   Text="{Binding Password}" />
+            <Label Text="Confirm Password:"
+                   VerticalTextAlignment="Center" />
+            <Entry IsPassword="True"
+                   Text="{Binding ConfirmPassword}" />
+            <Button VerticalOptions="Center"
+                    Text="Register"
+                    Command="{Binding RegisterCommand}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
